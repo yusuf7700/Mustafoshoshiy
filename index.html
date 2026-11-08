@@ -91,7 +91,7 @@ body.lock{overflow:hidden}
 .hero h1 em{display:block;min-height:1.2em;transition:transform .5s var(--ease),opacity .4s}
 .hero h1 em.out{transform:translateY(-40%);opacity:0}
 .hero h1 em.pre{transform:translateY(40%);opacity:0;transition:none}
-.wcard{position:absolute;z-index:3;left:-14%;bottom:-6%;width:200px;padding:16px 18px;background:rgba(38,26,17,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(228,201,141,.35);border-radius:20px;box-shadow:0 24px 50px -20px #000;text-align:center;animation:float 6s ease-in-out infinite;perspective:600px}
+.wcard{position:absolute;z-index:3;left:-16%;bottom:-10%;width:200px;padding:16px 18px;background:rgba(38,26,17,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(228,201,141,.35);border-radius:20px;box-shadow:0 24px 50px -20px #000;text-align:center;animation:float 6s ease-in-out infinite;perspective:600px}
 .wl{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:#b9a891;display:flex;justify-content:space-between;align-items:center}
 .wl button{background:none;border:0;color:var(--gold2);cursor:pointer;width:26px;height:26px;display:grid;place-items:center}
 .wl svg{width:17px;height:17px}
@@ -195,8 +195,11 @@ footer a{color:var(--gold2)}
  .hero-grid,.teacher-grid,.sched-grid,.contact-grid{grid-template-columns:1fr;gap:48px}
  .hero{padding-top:110px}
  .portrait{order:-1;width:min(280px,66vw)}
- .wcard{left:-2%;bottom:-10%;width:176px;padding:13px 14px}.wa{font-size:2.3rem}.c3{right:-4%}
- .portrait{margin-bottom:46px}
+ .c3{right:-4%}
+ .portrait{margin-bottom:96px}
+ .wcard{left:0;right:0;margin:0 auto;bottom:-84px;width:min(290px,86vw);padding:12px 16px;text-align:left}
+ .wbody{display:grid;grid-template-columns:84px 1fr;grid-template-areas:"l l" "a u" "a n";column-gap:10px;align-items:center}
+ .wl{grid-area:l;margin-bottom:2px}.wa{grid-area:a;font-size:2.4rem;text-align:center}.wu{grid-area:u;margin:0;font-size:1.05rem}.wn{grid-area:n;justify-self:start}.wt{display:none}
  .grid4{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:1fr}
  .gal{height:auto;grid-template-columns:1fr 1fr;grid-template-rows:auto}
  .gal figure:first-child{grid-column:span 2;grid-row:auto}.gal figure{aspect-ratio:4/3}
@@ -237,7 +240,7 @@ footer a{color:var(--gold2)}
    </div>
   </div>
   <div class="portrait rv" style="--d:.2s">
-   <img src="images/ustoz.png" alt="Mustafo ustoz — arab tili o‘qituvchisi" width="640" height="640">
+   <img src="images/logo.png" alt="Chashma Learning Centre logotipi" width="704" height="704">
    <span class="chip c3">Kichik guruhlar</span>
    <div class="wcard"><div class="wbody" id="wb">
     <div class="wl"><span>Kunning so‘zi</span><button id="spk" aria-label="Eshitish"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg></button></div>
