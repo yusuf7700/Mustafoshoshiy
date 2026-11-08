@@ -80,9 +80,9 @@ header.on{background:rgba(27,19,13,.82);backdrop-filter:blur(14px);-webkit-backd
 
 /* teacher */
 .teacher-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}
-.tphoto{position:relative;max-width:380px;margin:auto}
-.tphoto img{border-radius:var(--r);aspect-ratio:1;object-fit:cover;border-radius:50%;box-shadow:0 30px 60px -25px rgba(111,74,43,.6)}
-.tphoto::before{content:"";position:absolute;inset:-16px -16px 16px 16px;border:1px solid var(--gold);border-radius:50%;opacity:.6;z-index:-1}
+.tphoto{position:relative;width:min(340px,78%);margin:auto}
+.tphoto img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:50%;box-shadow:0 30px 60px -25px rgba(111,74,43,.6)}
+.tphoto::before{content:"";position:absolute;inset:-12px -12px 12px 12px;border:1px solid var(--gold);border-radius:50%;opacity:.6;z-index:-1}
 .name-ar{font-family:'Amiri';font-size:1.6rem;color:var(--brown);margin:-4px 0 18px}
 .teacher p{color:var(--mute);margin-bottom:16px;max-width:520px}
 .quote{margin-top:26px;padding:22px 26px;border-left:2px solid var(--gold);background:var(--sand);border-radius:0 var(--r) var(--r) 0;font-family:'Playfair Display';font-size:1.1rem;color:var(--ink)}
