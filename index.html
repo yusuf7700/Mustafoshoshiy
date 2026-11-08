@@ -67,10 +67,42 @@ header.on{background:rgba(27,19,13,.82);backdrop-filter:blur(14px);-webkit-backd
 .portrait img{width:100%;height:100%;border-radius:50%;object-fit:cover;box-shadow:0 40px 80px -20px rgba(0,0,0,.7);animation:float 7s ease-in-out infinite}
 .chip{position:absolute;z-index:2;background:rgba(38,26,17,.85);backdrop-filter:blur(8px);border:1px solid rgba(228,201,141,.3);border-radius:16px;padding:10px 16px;font-size:.8rem;color:var(--gold2);animation:float 6s ease-in-out infinite}
 .chip.ar{font-family:'Amiri';font-size:1.6rem;line-height:1.1;padding:8px 18px}
-.c1{top:6%;left:-8%}.c2{bottom:12%;left:-12%;animation-delay:-2s}.c3{top:30%;right:-10%;animation-delay:-4s}
+
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes drift{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(-20px,20px) rotate(2deg)}}
+
+
+/* intro */
+body.lock{overflow:hidden}
+#intro{position:fixed;inset:0;z-index:100;background:var(--esp);display:grid;place-items:center;text-align:center;cursor:pointer;transition:transform 1s var(--ease)}
+#intro.out{transform:translateY(-100%)}
+#intro .ar{font-family:'Amiri',serif;font-size:clamp(3rem,13vw,6.5rem);line-height:1.5;color:var(--gold2);direction:rtl;animation:write 1.5s .3s var(--ease) both}
+#intro .ln{width:0;height:1px;background:var(--gold);margin:6px auto 18px;animation:grow 1s 1.3s var(--ease) forwards}
+#intro small{display:block;letter-spacing:.38em;font-size:.7rem;color:#b9a891;opacity:0;animation:fade 1s 1.5s forwards}
+@keyframes write{from{clip-path:inset(-30% 0 -30% 100%)}to{clip-path:inset(-30% 0 -30% 0)}}
+@keyframes grow{to{width:120px}}@keyframes fade{to{opacity:1}}
+/* hero extras */
+.hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(520px circle at var(--mx,70%) var(--my,40%),rgba(200,161,90,.15),transparent 60%)}
+.hero-grid{z-index:1}
+#fl{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+#fl span{position:absolute;bottom:-120px;font-family:'Amiri',serif;color:var(--gold);opacity:0;animation:rise linear infinite}
+@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}12%,88%{opacity:var(--o)}100%{transform:translateY(-115vh) rotate(24deg);opacity:0}}
+.hero h1 em{display:block;min-height:1.2em;transition:transform .5s var(--ease),opacity .4s}
+.hero h1 em.out{transform:translateY(-40%);opacity:0}
+.hero h1 em.pre{transform:translateY(40%);opacity:0;transition:none}
+.wcard{position:absolute;z-index:3;left:-14%;bottom:-6%;width:200px;padding:16px 18px;background:rgba(38,26,17,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(228,201,141,.35);border-radius:20px;box-shadow:0 24px 50px -20px #000;text-align:center;animation:float 6s ease-in-out infinite;perspective:600px}
+.wl{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:#b9a891;display:flex;justify-content:space-between;align-items:center}
+.wl button{background:none;border:0;color:var(--gold2);cursor:pointer;width:26px;height:26px;display:grid;place-items:center}
+.wl svg{width:17px;height:17px}
+.wa{font-family:'Amiri',serif;font-size:2.8rem;line-height:1.35;color:var(--gold2)}
+.wt{font-size:.8rem;color:#b9a891;font-style:italic}
+.wu{font-family:'Playfair Display',serif;font-size:1.15rem;margin:2px 0 12px}
+.wn{font:inherit;font-size:.78rem;font-weight:600;color:var(--esp);background:var(--gold);border:0;border-radius:99px;padding:7px 14px;cursor:pointer;transition:transform .3s var(--ease)}
+.wn:hover{transform:scale(1.06)}
+.wbody.flip{animation:flip .5s var(--ease)}
+@keyframes flip{50%{transform:rotateX(90deg);opacity:0}}
+.c3{top:6%;right:-10%}
 
 /* marquee */
 .marq{background:var(--gold);color:var(--esp);overflow:hidden;padding:16px 0;font-family:'Amiri',serif;font-size:1.7rem;white-space:nowrap}
@@ -163,7 +195,8 @@ footer a{color:var(--gold2)}
  .hero-grid,.teacher-grid,.sched-grid,.contact-grid{grid-template-columns:1fr;gap:48px}
  .hero{padding-top:110px}
  .portrait{order:-1;width:min(280px,66vw)}
- .c1{left:-4%}.c2{left:-6%}.c3{right:-4%}
+ .wcard{left:-2%;bottom:-10%;width:176px;padding:13px 14px}.wa{font-size:2.3rem}.c3{right:-4%}
+ .portrait{margin-bottom:46px}
  .grid4{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:1fr}
  .gal{height:auto;grid-template-columns:1fr 1fr;grid-template-rows:auto}
  .gal figure:first-child{grid-column:span 2;grid-row:auto}.gal figure{aspect-ratio:4/3}
@@ -174,7 +207,8 @@ footer a{color:var(--gold2)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
-<body>
+<body class="lock">
+<div id="intro"><div><div class="ar">السلام عليكم</div><div class="ln"></div><small>CHASHMA LEARNING CENTRE</small></div></div>
 
 <header id="hd">
  <div class="wrap nav">
@@ -186,11 +220,11 @@ footer a{color:var(--gold2)}
 
 <main id="top">
 <section class="hero">
- <div class="bgletter" aria-hidden="true">ع</div>
+ <div class="bgletter" aria-hidden="true">ع</div><div id="fl" aria-hidden="true"></div>
  <div class="wrap hero-grid">
   <div>
    <span class="tag rv">Arab tili · Ingliz tili · Rus tili</span>
-   <h1 class="rv" style="--d:.1s">Arab tilini <em>ishonch</em> bilan o‘rganing</h1>
+   <h1 class="rv" style="--d:.1s">Arab tilini<em id="rot">ishonch bilan</em>o‘rganing</h1>
    <p class="sub rv" style="--d:.2s">Kichik guruhlar, zamonaviy metodika va har bir o‘quvchiga alohida e’tibor. Yozish, o‘qish va gapirishni Mustafo ustoz bilan boshlang.</p>
    <div class="cta rv" style="--d:.3s">
     <a class="btn btn-gold" href="tel:+998700790089"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>+998 70 079 00 89</a>
@@ -204,9 +238,11 @@ footer a{color:var(--gold2)}
   </div>
   <div class="portrait rv" style="--d:.2s">
    <img src="images/ustoz.png" alt="Mustafo ustoz — arab tili o‘qituvchisi" width="640" height="640">
-   <span class="chip ar">مرحبا</span>
-   <span class="chip c2">Kichik guruhlar</span>
-   <span class="chip ar c3">كتاب</span>
+   <span class="chip c3">Kichik guruhlar</span>
+   <div class="wcard"><div class="wbody" id="wb">
+    <div class="wl"><span>Kunning so‘zi</span><button id="spk" aria-label="Eshitish"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg></button></div>
+    <div class="wa" id="wa" lang="ar" dir="rtl">كتاب</div><div class="wt" id="wt">kitāb</div><div class="wu" id="wu">kitob</div>
+    <button class="wn" id="nx">Yana so‘z ↻</button></div></div>
   </div>
  </div>
 </section>
@@ -325,16 +361,51 @@ const hd=document.getElementById('hd');
 const onScroll=()=>hd.classList.toggle('on',scrollY>40);onScroll();addEventListener('scroll',onScroll,{passive:true});
 document.getElementById('yr').textContent=new Date().getFullYear();
 
-// scroll reveal
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+// boot: reveal + counters
+let booted=false;
+function boot(){
+  if(booted)return;booted=true;
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  document.querySelectorAll('[data-n]').forEach(el=>{
+    const n=+el.dataset.n,s=el.dataset.s||'';let t0=null;
+    const step=t=>{t0??=t;const p=Math.min((t-t0)/1400,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3)))+(p===1?s:'');if(p<1)requestAnimationFrame(step)};
+    setTimeout(()=>requestAnimationFrame(step),500);
+  });
+}
+// intro
+const intro=document.getElementById('intro');
+let seen=false;try{seen=sessionStorage.getItem('seen')}catch(e){}
+const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const endIntro=()=>{intro.classList.add('out');document.body.classList.remove('lock');boot();try{sessionStorage.setItem('seen',1)}catch(e){}setTimeout(()=>intro.remove(),1100)};
+if(seen||calm){intro.remove();document.body.classList.remove('lock');boot()}
+else{const t=setTimeout(endIntro,2600);intro.addEventListener('click',()=>{clearTimeout(t);endIntro()},{once:true})}
 
-// counters
-document.querySelectorAll('[data-n]').forEach(el=>{
-  const n=+el.dataset.n,s=el.dataset.s||'';let t0=null;
-  const step=t=>{t0??=t;const p=Math.min((t-t0)/1400,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3)))+(p===1?s:'');if(p<1)requestAnimationFrame(step)};
-  setTimeout(()=>requestAnimationFrame(step),500);
+// rotating headline word
+const rot=document.getElementById('rot'),rw=['ishonch bilan','noldan boshlab','qiziqib','mukammal'];let ri=0;
+if(!calm)setInterval(()=>{rot.classList.add('out');setTimeout(()=>{ri=(ri+1)%rw.length;rot.textContent=rw[ri];rot.classList.remove('out');rot.classList.add('pre');void rot.offsetWidth;rot.classList.remove('pre')},450)},2800);
+
+// floating arabic letters
+const fl=document.getElementById('fl');
+if(!calm)'ابتثجحخدذرزسشصضطظعغفقكلمنهوي'.split('').sort(()=>Math.random()-.5).slice(0,14).forEach(c=>{
+  const e=document.createElement('span');e.textContent=c;
+  e.style.cssText=`left:${Math.random()*96}%;font-size:${22+Math.random()*60}px;--o:${.07+Math.random()*.12};animation-duration:${16+Math.random()*18}s;animation-delay:${-Math.random()*30}s`;
+  fl.appendChild(e);
 });
+
+// cursor glow
+const hero=document.querySelector('.hero');
+hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();hero.style.setProperty('--mx',(e.clientX-r.left)+'px');hero.style.setProperty('--my',(e.clientY-r.top)+'px')});
+
+// word of the day
+const W=[['كتاب','kitāb','kitob'],['قلم','qalam','qalam'],['مدرسة','madrasa','maktab'],['علم','ʿilm','ilm, bilim'],['صديق','ṣadīq','do‘st'],['ماء','māʾ','suv'],['شمس','shams','quyosh'],['قمر','qamar','oy'],['بيت','bayt','uy'],['نور','nūr','nur, yorug‘lik'],['سلام','salām','tinchlik'],['أمل','amal','umid']];
+let wi=Math.floor(Date.now()/864e5)%W.length;
+const wa=document.getElementById('wa'),wt=document.getElementById('wt'),wu=document.getElementById('wu'),wb=document.getElementById('wb');
+const show=()=>{[wa.textContent,wt.textContent,wu.textContent]=W[wi]};show();
+document.getElementById('nx').onclick=()=>{wb.classList.remove('flip');void wb.offsetWidth;wb.classList.add('flip');setTimeout(()=>{wi=(wi+1)%W.length;show()},250)};
+const spk=document.getElementById('spk');
+if(!('speechSynthesis' in window))spk.style.display='none';
+spk.onclick=()=>{const u=new SpeechSynthesisUtterance(wa.textContent);u.lang='ar-SA';u.rate=.8;speechSynthesis.cancel();speechSynthesis.speak(u)};
 
 // highlight today
 const td=document.querySelector(`#days li[data-d="${new Date().getDay()}"]`);if(td)td.classList.add('today');
